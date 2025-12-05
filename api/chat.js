@@ -10,13 +10,14 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "Missing message" });
     }
 
+    // Pega a chave do ambiente
     const apiKey = process.env.OPENAI_API_KEY;
 
     if (!apiKey) {
-      return res.status(500).json({ error: "API key missing on server" });
+      return res.status(500).json({ error: "Missing API key" });
     }
 
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+    const response = await fetch("https://api.openai.com/v1/responses", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -24,14 +25,11 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         model: "gpt-4o-mini",
-        temperature: 0.7,
-        messages: [
+        input: [
           {
             role: "system",
-            content: `
-Você é o Professor Lucas, professor de Português.
-Seja educado, explique com clareza e ofereça exercícios.
-`
+            content:
+              "Você é o Professor Lucas, um professor de Português. Seja educado, explique com clareza e use exemplos simples."
           },
           {
             role: "user",
@@ -43,19 +41,22 @@ Seja educado, explique com clareza e ofereça exercícios.
 
     const data = await response.json();
 
-    // Debug (ativar se necessário)
-    // console.log("API Response:", data);
+    // Debug (descomente se quiser ver o erro exato no log)
+    // console.log("OPENAI RAW RESPONSE:", data);
 
-    const reply = data?.choices?.[0]?.message?.content;
+    const reply = data?.output?.[0]?.content?.[0]?.text;
 
     if (!reply) {
-      return res.status(500).json({ error: "No reply from model" });
+      return res.status(500).json({
+        error: "Model returned empty response",
+        raw: data
+      });
     }
 
     return res.status(200).json({ reply });
 
   } catch (error) {
-    console.error("API ERROR:", error);
-    return res.status(500).json({ error: "Server error" });
+    console.error("SERVER ERROR:", error);
+    return res.status(500).json({ error: "Internal server error" });
   }
 }
