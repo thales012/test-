@@ -5,11 +5,13 @@
     <title>Academia de Professores IA</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Tailwind via CDN (mais simples para começar) -->
+    <!-- Tailwind via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
+
   <body class="min-h-screen bg-slate-950 text-slate-100">
     <div class="max-w-5xl mx-auto px-4 py-10">
+      
       <!-- Cabeçalho -->
       <header class="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
@@ -27,33 +29,26 @@
 
       <!-- Grid de professores -->
       <section class="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-        <!-- Professor de Português (já funcionando) -->
-        <a
-          href="https://chatgpt.com/g/g-69324b6f168c8191a6ac2f1fc6d81fc6-professor-lucas"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="group rounded-2xl border border-slate-800 bg-slate-900/60 p-5 shadow-lg shadow-black/40 transition hover:-translate-y-1 hover:border-emerald-500/60 hover:bg-slate-900"
+
+        <!-- Professor de Português (chat interno) -->
+        <div
+          onclick="openChat()"
+          class="group rounded-2xl border border-slate-800 bg-slate-900/60 p-5 shadow-lg shadow-black/40 transition hover:-translate-y-1 hover:border-emerald-500/60 hover:bg-slate-900 cursor-pointer"
         >
           <div class="flex items-center gap-4">
-            <!-- Avatar: você pode trocar a imagem depois -->
             <div
               class="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-600/80 text-lg font-semibold"
             >
               PL
             </div>
             <div>
-              <h2 class="text-lg font-semibold">
-                Professor Lucas
-              </h2>
-              <p class="text-xs text-emerald-300">
-                Português • Gramática • Redação
-              </p>
+              <h2 class="text-lg font-semibold">Professor Lucas</h2>
+              <p class="text-xs text-emerald-300">Português • Gramática • Redação</p>
             </div>
           </div>
 
           <p class="mt-4 text-sm text-slate-300">
-            Tire dúvidas de gramática, melhore sua escrita e treine redações
-            com correção detalhada.
+            Tire dúvidas de gramática, melhore sua escrita e treine redações com correção detalhada.
           </p>
 
           <div class="mt-4 flex items-center justify-between text-xs text-slate-400">
@@ -63,49 +58,29 @@
               Online
             </span>
           </div>
-        </a>
+        </div>
 
         <!-- Professor de História (em breve) -->
-        <div
-          class="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 opacity-60"
-        >
+        <div class="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 opacity-60">
           <div class="flex items-center gap-4">
-            <div
-              class="flex h-12 w-12 items-center justify-center rounded-full bg-slate-700 text-lg font-semibold"
-            >
-              H
-            </div>
+            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-slate-700 text-lg font-semibold">H</div>
             <div>
-              <h2 class="text-lg font-semibold">
-                Professor de História
-              </h2>
-              <p class="text-xs text-slate-400">
-                Em breve
-              </p>
+              <h2 class="text-lg font-semibold">Professor de História</h2>
+              <p class="text-xs text-slate-400">Em breve</p>
             </div>
           </div>
           <p class="mt-4 text-sm text-slate-400">
-            Linha do tempo, grandes eventos, revisões para provas e vestibulares.
+            História geral, linha do tempo, grandes eventos e revisões para concursos.
           </p>
         </div>
 
         <!-- Professor de Inglês (em breve) -->
-        <div
-          class="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 opacity-60"
-        >
+        <div class="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 opacity-60">
           <div class="flex items-center gap-4">
-            <div
-              class="flex h-12 w-12 items-center justify-center rounded-full bg-slate-700 text-lg font-semibold"
-            >
-              EN
-            </div>
+            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-slate-700 text-lg font-semibold">EN</div>
             <div>
-              <h2 class="text-lg font-semibold">
-                Professor de Inglês
-              </h2>
-              <p class="text-xs text-slate-400">
-                Em breve
-              </p>
+              <h2 class="text-lg font-semibold">Professor de Inglês</h2>
+              <p class="text-xs text-slate-400">Em breve</p>
             </div>
           </div>
           <p class="mt-4 text-sm text-slate-400">
@@ -114,28 +89,19 @@
         </div>
 
         <!-- Professor de Programação (em breve) -->
-        <div
-          class="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 opacity-60"
-        >
+        <div class="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 opacity-60">
           <div class="flex items-center gap-4">
-            <div
-              class="flex h-12 w-12 items-center justify-center rounded-full bg-slate-700 text-lg font-semibold"
-            >
-              DEV
-            </div>
+            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-slate-700 text-lg font-semibold">DEV</div>
             <div>
-              <h2 class="text-lg font-semibold">
-                Professor de Programação
-              </h2>
-              <p class="text-xs text-slate-400">
-                Em breve
-              </p>
+              <h2 class="text-lg font-semibold">Professor de Programação</h2>
+              <p class="text-xs text-slate-400">Em breve</p>
             </div>
           </div>
           <p class="mt-4 text-sm text-slate-400">
             Lógica, primeiros códigos e ajuda em projetos.
           </p>
         </div>
+
       </section>
 
       <!-- Rodapé -->
@@ -146,9 +112,72 @@
       </footer>
     </div>
 
+
+    <!-- ==================== MODAL DE CHAT ==================== -->
+    <div id="chatModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+      <div class="bg-slate-900 w-96 max-w-full rounded-2xl p-4 shadow-xl border border-slate-700">
+        
+        <h2 class="text-lg font-bold mb-3 text-emerald-300">Professor Lucas</h2>
+
+        <div id="chatMessages"
+          class="h-72 overflow-y-auto bg-slate-800 rounded-lg p-3 text-sm space-y-3 border border-slate-700">
+        </div>
+
+        <div class="mt-4 flex gap-2">
+          <input id="chatInput" type="text"
+            class="flex-1 rounded-xl bg-slate-700 text-white p-2 outline-none border border-slate-600"
+            placeholder="Digite sua mensagem..."
+          />
+          <button onclick="sendMessage()"
+            class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-xl text-white">
+            Enviar
+          </button>
+        </div>
+
+        <button onclick="closeChat()" class="mt-3 text-xs text-slate-400 hover:text-white">Fechar</button>
+      </div>
+    </div>
+
+
+    <!-- ==================== SCRIPT DO CHAT ==================== -->
     <script>
-      // Ano automático no rodapé
+      function openChat() {
+        document.getElementById("chatModal").classList.remove("hidden");
+      }
+
+      function closeChat() {
+        document.getElementById("chatModal").classList.add("hidden");
+      }
+
+      async function sendMessage() {
+        const input = document.getElementById("chatInput");
+        const message = input.value.trim();
+        if (!message) return;
+
+        addMessage("Você", message);
+        input.value = "";
+
+        const res = await fetch("/api/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message }),
+        });
+
+        const data = await res.json();
+        addMessage("Professor Lucas", data.reply);
+      }
+
+      function addMessage(user, text) {
+        const box = document.getElementById("chatMessages");
+        const div = document.createElement("div");
+        div.innerHTML = `<strong>${user}:</strong> ${text}`;
+        box.appendChild(div);
+        box.scrollTop = box.scrollHeight;
+      }
+
+      // Atualiza o ano automaticamente
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
+
   </body>
 </html>
