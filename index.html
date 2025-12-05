@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Academia de Professores IA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Tailwind via CDN (mais simples para começar) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="min-h-screen bg-slate-950 text-slate-100">
+    <div class="max-w-5xl mx-auto px-4 py-10">
+      <!-- Cabeçalho -->
+      <header class="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">
+            Academia de Professores IA
+          </h1>
+          <p class="mt-2 text-sm sm:text-base text-slate-400">
+            Escolha um professor e comece a aprender agora mesmo.
+          </p>
+        </div>
+        <span class="inline-flex items-center rounded-full border border-emerald-500/40 bg-emerald-500/10 px-3 py-1 text-xs uppercase tracking-wide text-emerald-300">
+          Beta inicial
+        </span>
+      </header>
+
+      <!-- Grid de professores -->
+      <section class="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+        <!-- Professor de Português (já funcionando) -->
+        <a
+          href="https://chatgpt.com/g/g-69324b6f168c8191a6ac2f1fc6d81fc6-professor-lucas"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group rounded-2xl border border-slate-800 bg-slate-900/60 p-5 shadow-lg shadow-black/40 transition hover:-translate-y-1 hover:border-emerald-500/60 hover:bg-slate-900"
+        >
+          <div class="flex items-center gap-4">
+            <!-- Avatar: você pode trocar a imagem depois -->
+            <div
+              class="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-600/80 text-lg font-semibold"
+            >
+              PL
+            </div>
+            <div>
+              <h2 class="text-lg font-semibold">
+                Professor Lucas
+              </h2>
+              <p class="text-xs text-emerald-300">
+                Português • Gramática • Redação
+              </p>
+            </div>
+          </div>
+
+          <p class="mt-4 text-sm text-slate-300">
+            Tire dúvidas de gramática, melhore sua escrita e treine redações
+            com correção detalhada.
+          </p>
+
+          <div class="mt-4 flex items-center justify-between text-xs text-slate-400">
+            <span>Disponível 24h</span>
+            <span class="inline-flex items-center gap-1 text-emerald-300">
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+              Online
+            </span>
+          </div>
+        </a>
+
+        <!-- Professor de História (em breve) -->
+        <div
+          class="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 opacity-60"
+        >
+          <div class="flex items-center gap-4">
+            <div
+              class="flex h-12 w-12 items-center justify-center rounded-full bg-slate-700 text-lg font-semibold"
+            >
+              H
+            </div>
+            <div>
+              <h2 class="text-lg font-semibold">
+                Professor de História
+              </h2>
+              <p class="text-xs text-slate-400">
+                Em breve
+              </p>
+            </div>
+          </div>
+          <p class="mt-4 text-sm text-slate-400">
+            Linha do tempo, grandes eventos, revisões para provas e vestibulares.
+          </p>
+        </div>
+
+        <!-- Professor de Inglês (em breve) -->
+        <div
+          class="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 opacity-60"
+        >
+          <div class="flex items-center gap-4">
+            <div
+              class="flex h-12 w-12 items-center justify-center rounded-full bg-slate-700 text-lg font-semibold"
+            >
+              EN
+            </div>
+            <div>
+              <h2 class="text-lg font-semibold">
+                Professor de Inglês
+              </h2>
+              <p class="text-xs text-slate-400">
+                Em breve
+              </p>
+            </div>
+          </div>
+          <p class="mt-4 text-sm text-slate-400">
+            Conversação, vocabulário, gramática e prática focada no dia a dia.
+          </p>
+        </div>
+
+        <!-- Professor de Programação (em breve) -->
+        <div
+          class="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 opacity-60"
+        >
+          <div class="flex items-center gap-4">
+            <div
+              class="flex h-12 w-12 items-center justify-center rounded-full bg-slate-700 text-lg font-semibold"
+            >
+              DEV
+            </div>
+            <div>
+              <h2 class="text-lg font-semibold">
+                Professor de Programação
+              </h2>
+              <p class="text-xs text-slate-400">
+                Em breve
+              </p>
+            </div>
+          </div>
+          <p class="mt-4 text-sm text-slate-400">
+            Lógica, primeiros códigos e ajuda em projetos.
+          </p>
+        </div>
+      </section>
+
+      <!-- Rodapé -->
+      <footer class="mt-12 border-t border-slate-800 pt-6 text-xs text-slate-500">
+        <p>
+          © <span id="year"></span> Academia de Professores IA — Projeto em desenvolvimento.
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      // Ano automático no rodapé
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
