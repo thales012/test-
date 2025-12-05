@@ -10,45 +10,47 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "Missing message" });
     }
 
-    // Pega a chave do ambiente
     const apiKey = process.env.OPENAI_API_KEY;
 
     if (!apiKey) {
-      return res.status(500).json({ error: "Missing API key" });
+      return res.status(500).json({ error: "API key missing" });
     }
 
-    const response = await fetch("https://api.openai.com/v1/responses", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${apiKey}`,
-      },
-      body: JSON.stringify({
-        model: "gpt-4o-mini",
-        input: [
-          {
-            role: "system",
-            content:
-              "Você é o Professor Lucas, um professor de Português. Seja educado, explique com clareza e use exemplos simples."
-          },
-          {
-            role: "user",
-            content: message
-          }
-        ]
-      })
-    });
+    const response = await fetch(
+      "https://api.openai.com/v1/chat/completions",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${apiKey}`,
+        },
+        body: JSON.stringify({
+          model: "gpt-4o-mini",
+          messages: [
+            {
+              role: "system",
+              content:
+                "Você é o Professor Lucas, professor de Português. Explique com clareza e dê exemplos simples."
+            },
+            {
+              role: "user",
+              content: message
+            }
+          ],
+          temperature: 0.7,
+        }),
+      }
+    );
 
     const data = await response.json();
 
-    // Debug (descomente se quiser ver o erro exato no log)
-    // console.log("OPENAI RAW RESPONSE:", data);
+    console.log("OPENAI RESPONSE:", data);
 
-    const reply = data?.output?.[0]?.content?.[0]?.text;
+    const reply = data?.choices?.[0]?.message?.content;
 
     if (!reply) {
       return res.status(500).json({
-        error: "Model returned empty response",
+        error: "Empty reply from OpenAI",
         raw: data
       });
     }
